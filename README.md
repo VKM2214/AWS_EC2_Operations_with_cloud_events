@@ -22,6 +22,29 @@ All the backend logic is implemented in a Lambda function.
 2) Clone the repo 
 3) Update the conf/credentials.py file with the aws credentials(access_key and secret_key) and region(For eg:- If your region is "US-east-1", enter 'us-east-1' in the region field)
 4) Create a two AWS Lambda function with name 'start_stop_ec2' & 'stop_ec2' and paste the below code in inline editor. Update the conf/credentials.py file with the lambda function name details and accesskey details. 
+5) To Create IAM policy using JSON policy editor:-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Start*",
+        "ec2:Stop*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
 
 
 ## 'start_stop_ec2'
