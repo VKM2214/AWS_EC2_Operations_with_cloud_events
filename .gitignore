@@ -1,0 +1,10 @@
+#Add files you want to ignore
+*.pyc
+__pycache__
+*.py[cod]
+*$py.class
+conf/
+*.orig
+.vscode/
+.cache/
+debug.log
